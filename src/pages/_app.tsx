@@ -1,6 +1,15 @@
 import "@/styles/globals.css";
+import { MantineProvider, createTheme } from "@mantine/core";
 import type { AppProps } from "next/app";
 
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
+
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <MantineProvider theme={theme}>
+      <Component {...pageProps} />
+    </MantineProvider>
+  );
 }
