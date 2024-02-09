@@ -1,10 +1,10 @@
 import { Button } from "@mantine/core";
 import OpenAI from "openai";
 import { useState } from "react";
-import Itinerary from "../itinerary";
 
-const Bot = () => {
-  const [itineraryData, setItineraryData] = useState({} as any);
+import { IconReload } from "@tabler/icons-react";
+
+const Bot = ({ onData }: any) => {
   const [renderMap, setRenderMap] = useState(false);
   const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY,
@@ -18,30 +18,21 @@ const Bot = () => {
         {
           role: "system",
           content:
-            "write a JSON object for a car journey with the keys name (of the itinerary), start and finish that are cities, and the key stop which is an array of objects of this typer {location: city, stopover: true}",
+            "write a JSON object for a car journey with the keys  start and finish that are cities, and the key stop which is an array of objects of this typer {location: city, stopover: true}",
         },
       ],
     });
 
-    console.log(completion.choices[0].message.content);
     const itinerary = completion.choices[0].message.content;
 
-    const tempItineraryData = JSON.parse(itinerary);
+    const itineraryData = JSON.parse(itinerary as string);
     setRenderMap(true);
-    setItineraryData(tempItineraryData);
+    onData(itineraryData);
   };
   return (
-    <div>
-      <Button onClick={generateItinerary}>X</Button>
-      {renderMap && (
-        <Itinerary
-          API={true}
-          start={itineraryData.start}
-          stops={itineraryData.stops}
-          finish={itineraryData.finish}
-        />
-      )}
-    </div>
+    <Button onClick={generateItinerary}>
+      {renderMap ? <IconReload /> : <p>GET INSPIRATION</p>}
+    </Button>
   );
 };
 
