@@ -68,7 +68,12 @@ const Builder = () => {
         )}
 
         {renderMap && (
-          <Itinerary start={startData} stops={stopsData} finish={finishData} />
+          <Itinerary
+            API={true}
+            start={startData}
+            stops={stopsData}
+            finish={finishData}
+          />
         )}
       </Flex>
     </Shell>

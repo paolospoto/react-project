@@ -10,11 +10,7 @@ const Navbar = () => {
       <ColorScheme />
       <NavbarEl link="/" icon={<IconHome />} title={"HOME"} />
       <NavbarEl link="/xs" icon={<IconMap />} title={"ITINERARIES"}>
-        <NavbarEl
-          link="/builder"
-          icon={<IconHeart />}
-          title={"MY ITINERARIES"}
-        />
+        <NavbarEl link="/saved" icon={<IconHeart />} title={"MY ITINERARIES"} />
         <NavbarEl link="/builder" icon={<IconPlus />} title={"NEW ITINERARY"} />
       </NavbarEl>
     </Flex>

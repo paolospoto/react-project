@@ -14,12 +14,10 @@ import { alphabet } from "@/utils/mock";
 
 import styles from "./index.module.scss";
 
-const Itinerary = ({ start, stops, finish }: any) => {
+const Itinerary = ({ API, start, stops, finish }: any) => {
   const [itineraryInfo, setItineraryInfo] = useState<any>([]);
   const handleRouteInfo = (route: any) => {
     setItineraryInfo(route);
-
-    console.log(route);
   };
 
   return (
@@ -33,7 +31,23 @@ const Itinerary = ({ start, stops, finish }: any) => {
       w={"100%"}
     >
       <Box w={"80%"} h={300}>
-        <APIProvider apiKey={"AIzaSyAziHvXBEgvKmVPbzZkcaTasDxOjWt1cwQ"}>
+        {API ? (
+          <APIProvider apiKey={"AIzaSyAziHvXBEgvKmVPbzZkcaTasDxOjWt1cwQ"}>
+            <Map
+              mapId={"56522fd9aef04113"}
+              mapTypeControl={false}
+              zoomControl={false}
+              streetViewControl={false}
+            >
+              <Directions
+                start={start}
+                stops={stops}
+                finish={finish}
+                onRouteInfo={handleRouteInfo}
+              />
+            </Map>
+          </APIProvider>
+        ) : (
           <Map
             mapId={"56522fd9aef04113"}
             mapTypeControl={false}
@@ -47,7 +61,7 @@ const Itinerary = ({ start, stops, finish }: any) => {
               onRouteInfo={handleRouteInfo}
             />
           </Map>
-        </APIProvider>
+        )}
       </Box>
       {itineraryInfo.map((info: any, index: number) => (
         <Flex
