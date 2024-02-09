@@ -3,7 +3,7 @@ import "@mantine/core/styles.css";
 import { MantineProvider, createTheme } from "@mantine/core";
 import type { AppProps } from "next/app";
 
-const theme = createTheme({
+export const theme = createTheme({
   primaryColor: "blue",
 });
 

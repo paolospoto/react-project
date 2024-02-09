@@ -1,0 +1,40 @@
+.Wrapper {
+  position: relative;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Overlay {
+  text-align: center;
+  position: absolute;
+  bottom: 5%;
+
+  width: 80%;
+  height: 40%;
+
+  border-radius: 1.2rem;
+
+  color: black;
+  background-color: rgb(255, 255, 255);
+  z-index: 10;
+  animation: fadeIn 1s ease-out 1;
+
+  .Logo {
+    width: 80%;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .Logo {
+      width: 18%;
+    }
+  }
+}

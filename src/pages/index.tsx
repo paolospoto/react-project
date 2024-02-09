@@ -1,3 +1,4 @@
+import Hero from "@/components/hero";
 import Shell from "../components/shell";
 import Head from "next/head";
 
@@ -10,7 +11,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Shell>Main</Shell>
+      <Shell>
+        <Hero />
+      </Shell>
     </>
   );
 }

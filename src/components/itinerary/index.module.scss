@@ -1,0 +1,32 @@
+.ItineraryInfo {
+  position: relative;
+  .FirstLetter {
+    position: absolute;
+    top: -0.8rem;
+    right: 3.3rem;
+    color: white;
+    background-color: red;
+    width: 1.5rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .Arrow {
+    position: absolute;
+    top: 0.2rem;
+    right: 1.8rem;
+  }
+
+  .SecondLetter {
+    position: absolute;
+    top: -0.8rem;
+    right: 0.3rem;
+    color: white;
+    background-color: red;
+    width: 1.5rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}

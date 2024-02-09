@@ -2,35 +2,34 @@
 
 import { AppShell, Burger, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Navbar from "../navbar";
+import Header from "../header";
 
 const Shell = ({ children }: any) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
     <AppShell
-      style={{ zIndex: 9999 }}
       header={{ height: 80 }}
       navbar={{
         width: 300,
         breakpoint: "sm",
         collapsed: { mobile: !opened, desktop: !opened },
       }}
-      footer={{ height: 40 }}
+      footer={{ height: 60 }}
     >
-      <AppShell.Header style={{ border: "2px solid red" }}>
+      <AppShell.Header>
         <Flex h={"100%"} justify={"space-between"} align={"center"} p={"xs"}>
           <Burger opened={opened} onClick={toggle} size="sm" />
 
-          <p>instid</p>
+          <Header />
         </Flex>
       </AppShell.Header>
       <AppShell.Navbar>
-        <Flex direction={"column"}>
-          <p>instid22222</p>
-        </Flex>
+        <Navbar />
       </AppShell.Navbar>
 
-      <AppShell.Main p={0}>{children}</AppShell.Main>
+      <AppShell.Main pt={80}>{children}</AppShell.Main>
       <AppShell.Footer style={{ backgroundColor: "#5072ad", color: "white" }}>
         Footer
       </AppShell.Footer>
