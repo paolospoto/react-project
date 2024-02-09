@@ -4,9 +4,9 @@ import Itinerary from "@/components/itinerary";
 import Shell from "@/components/shell";
 import { createItem, readItem } from "@/utils/storage";
 import { Stop } from "@/utils/types";
-import { Button, Flex } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import Modal from "@/components/modal";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Builder = () => {
   const [startData, setStartData] = useState<string>();

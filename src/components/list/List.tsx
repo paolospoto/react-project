@@ -5,19 +5,15 @@ import Itinerary from "../itinerary";
 import { Button, Flex } from "@mantine/core";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { IconX } from "@tabler/icons-react";
+import Link from "next/link";
 
 const List = () => {
   const [itineraries, setItineraries] = useState<ItineraryData[]>([]);
   useEffect(() => {
     const values = readItem("itineraries");
-    console.log(values);
 
     setItineraries(values);
   }, []);
-
-  useEffect(() => {
-    console.log("state", itineraries);
-  }, [itineraries]);
 
   const deleteSavedItineraries = (index: any) => {
     if (!confirm("Are you sure you want to delete this itinerary?")) return;
@@ -30,11 +26,12 @@ const List = () => {
 
   return (
     <>
-      {itineraries ? (
+      {itineraries[0] ? (
         <>
           <APIProvider apiKey={"AIzaSyAziHvXBEgvKmVPbzZkcaTasDxOjWt1cwQ"}>
             {itineraries.map((itinerary, index) => (
               <Flex
+                w={"100%"}
                 key={index}
                 direction={"column"}
                 justify={"center"}
@@ -65,7 +62,12 @@ const List = () => {
           </APIProvider>
         </>
       ) : (
-        <h1>No itineraries saved</h1>
+        <>
+          <h1>No itineraries saved</h1>
+          <Link href={"/builder"}>
+            <Button>CREATE NEW ITINERARY</Button>
+          </Link>
+        </>
       )}
     </>
   );

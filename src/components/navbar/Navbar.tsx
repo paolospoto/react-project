@@ -1,7 +1,13 @@
 import { Flex } from "@mantine/core";
 
 import NavbarEl from "../navbarEl";
-import { IconHeart, IconHome, IconMap, IconPlus } from "@tabler/icons-react";
+import {
+  IconCloud,
+  IconHeart,
+  IconHome,
+  IconMap,
+  IconPlus,
+} from "@tabler/icons-react";
 import ColorScheme from "../colorScheme";
 
 const Navbar = () => {
@@ -13,6 +19,11 @@ const Navbar = () => {
         <NavbarEl link="/saved" icon={<IconHeart />} title={"MY ITINERARIES"} />
         <NavbarEl link="/builder" icon={<IconPlus />} title={"NEW ITINERARY"} />
       </NavbarEl>
+      <NavbarEl
+        link="/inspiration"
+        icon={<IconCloud />}
+        title={"INSPIRATION"}
+      />
     </Flex>
   );
 };
