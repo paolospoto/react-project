@@ -7,6 +7,7 @@ import {
   IconHome,
   IconMap,
   IconPlus,
+  IconUser,
 } from "@tabler/icons-react";
 import ColorScheme from "../colorScheme";
 
@@ -24,6 +25,7 @@ const Navbar = () => {
         icon={<IconCloud />}
         title={"INSPIRATION"}
       />
+      <NavbarEl link="/social" icon={<IconUser />} title={"SOCIAL"} />
     </Flex>
   );
 };

@@ -70,7 +70,7 @@ const Itinerary = ({ API, start, stops, finish }: any) => {
           justify={"center"}
           align={"center"}
           bg={theme.primaryColor}
-          style={{ borderRadius: 10, border: "2px solid black" }}
+          style={{ borderRadius: 10, border: "1px solid black" }}
           w={"80%"}
         >
           <Flex
