@@ -31,7 +31,7 @@ export const mockItineraryData = [
   {
     user: "Tuya",
     image: "https://avatar.iran.liara.run/public/girl?username=Tuya",
-    name: "Corsica road trip",
+    name: "Corsica Road Trip",
     time: 123,
     start: "Ajaccio",
     stops: [
