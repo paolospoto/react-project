@@ -56,7 +56,7 @@ const Form = ({ onItineraryData }: any) => {
     <Flex direction={"column"} gap={"sm"}>
       <Flex gap={"xs"} className={styles.Input}>
         <TextInput
-          placeholder="start"
+          placeholder="Start"
           value={startData}
           onChange={handleStartInput}
         />
@@ -79,7 +79,7 @@ const Form = ({ onItineraryData }: any) => {
       ))}
       <Flex gap={"xs"} className={styles.Input}>
         <TextInput
-          placeholder="finish"
+          placeholder="Finish"
           value={finishData}
           onChange={handleFinishInput}
         />

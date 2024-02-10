@@ -24,7 +24,7 @@ const Hero = () => {
             width={800}
             height={800}
           />
-          <Link href="/">
+          <Link href="/builder">
             <Button>START EXPLORING</Button>
           </Link>
         </Flex>

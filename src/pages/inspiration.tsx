@@ -5,6 +5,7 @@ import Shell from "@/components/shell";
 import Modal from "@/components/modal";
 import { useState } from "react";
 import { Flex } from "@mantine/core";
+import Loader from "@/components/loader";
 
 const Inspiration = () => {
   const [itineraryData, setItineraryData] = useState({} as any);
@@ -34,7 +35,7 @@ const Inspiration = () => {
       >
         {renderModal && <Modal />}
         <Bot onData={handleData} />
-        {itineraryData.start && (
+        {itineraryData.start ? (
           <>
             <DataSaver
               start={itineraryData.start}
@@ -49,6 +50,8 @@ const Inspiration = () => {
               finish={itineraryData.finish}
             />
           </>
+        ) : (
+          <Loader />
         )}
       </Flex>
     </Shell>

@@ -24,13 +24,13 @@ const DataSaver = ({ start, stops, finish, onSave }: any) => {
   };
 
   return (
-    <Flex gap={"xs"}>
+    <Flex justify={"space-between"} gap={"xs"}>
       <TextInput
         placeholder="Choose a name"
         value={nameData}
         onChange={handleNameInput}
       />
-      <Button onClick={saveItinerary}>SAVE ITINERARY</Button>
+      <Button onClick={saveItinerary}>SAVE</Button>
     </Flex>
   );
 };
