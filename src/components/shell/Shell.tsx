@@ -17,7 +17,7 @@ const Shell = ({ children }: any) => {
         breakpoint: "sm",
         collapsed: { mobile: !opened, desktop: !opened },
       }}
-      footer={{ height: 40 }}
+      footer={{ height: 60 }}
     >
       <AppShell.Header>
         <Flex h={"100%"} justify={"space-between"} align={"center"} p={"xs"}>
