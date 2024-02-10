@@ -4,6 +4,7 @@ import { AppShell, Burger, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Navbar from "../navbar";
 import Header from "../header";
+import Footer from "../footer";
 
 const Shell = ({ children }: any) => {
   const [opened, { toggle }] = useDisclosure();
@@ -16,7 +17,7 @@ const Shell = ({ children }: any) => {
         breakpoint: "sm",
         collapsed: { mobile: !opened, desktop: !opened },
       }}
-      footer={{ height: 60 }}
+      footer={{ height: 40 }}
     >
       <AppShell.Header>
         <Flex h={"100%"} justify={"space-between"} align={"center"} p={"xs"}>
@@ -31,7 +32,7 @@ const Shell = ({ children }: any) => {
 
       <AppShell.Main pt={80}>{children}</AppShell.Main>
       <AppShell.Footer style={{ backgroundColor: "#5072ad", color: "white" }}>
-        Footer
+        <Footer />
       </AppShell.Footer>
     </AppShell>
   );
