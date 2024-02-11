@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 const Builder = () => {
   const [startData, setStartData] = useState<string>();
-  const [stopsData, setStopsData] = useState<Stop[]>();
+  const [stopsData, setStopsData] = useState<any>();
   const [finishData, setFinishData] = useState<any>();
 
   const [renderMap, setRenderMap] = useState<boolean>(false);
@@ -60,7 +60,7 @@ const Builder = () => {
           <Form onItineraryData={handleItineraryData} />
         ) : (
           <DataSaver
-            start={startData}
+            start={startData ?? ""}
             stops={stopsData}
             finish={finishData}
             onSave={resetAll}
@@ -70,8 +70,8 @@ const Builder = () => {
         {renderMap && (
           <Itinerary
             API={true}
-            start={startData}
-            stops={stopsData}
+            start={startData ?? ""}
+            stops={Array.isArray(stopsData) ? stopsData : []}
             finish={finishData}
           />
         )}
