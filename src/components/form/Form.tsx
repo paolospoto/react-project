@@ -13,7 +13,7 @@ const Form = ({
   const [startData, setStartData] = useState<string>("");
   const [stopsData, setStopsData] = useState<Stop[]>([]);
   const [finishData, setFinishData] = useState<string>("");
-  const [stopInputs, setStopInputs] = useState<any>([]);
+  const [stopInputs, setStopInputs] = useState<any[]>([]);
 
   const [itineraryData, setItineraryData] = useState({});
 
@@ -25,6 +25,9 @@ const Form = ({
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
+    const tempInput = [...stopInputs];
+    tempInput[index] = event.target.value;
+    setStopInputs(tempInput);
     const tempStops = [...stopsData];
     tempStops[index] = {
       location: event.target.value,
@@ -76,7 +79,7 @@ const Form = ({
         <Flex gap={"xs"} key={index} className={styles.Input}>
           <TextInput
             placeholder="Add stops if you want.."
-            value={stop.location}
+            value={stop}
             required
             onChange={(event) => handleStopInput(event, index)}
           />
