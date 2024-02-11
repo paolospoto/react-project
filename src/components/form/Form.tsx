@@ -76,7 +76,7 @@ const Form = ({
         <Flex gap={"xs"} key={index} className={styles.Input}>
           <TextInput
             placeholder="Add stops if you want.."
-            value={stop}
+            value={stop.location}
             required
             onChange={(event) => handleStopInput(event, index)}
           />
