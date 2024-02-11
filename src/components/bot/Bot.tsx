@@ -24,9 +24,9 @@ const Bot = ({ onData }: any) => {
         {
           role: "system",
           content:
-            "write ONLY a JSON object for a car journey with the keys  start and finish that are cities, and the key stop which is an array of objects of this type {location: city, stopover: true}. Plan the itinerary starting from " +
+            "Create a JSON itinerary object starting from " +
             startData +
-            ".",
+            ", ensuring the 'start' and 'finish' cities are different. The itinerary should include 'start' and 'finish' keys for the starting and ending cities, respectively, and a 'stop' key with an array of objects for intermediate stops. Each object in the 'stop' array should have a 'location' key for the city, distinct from 'start' and 'finish', and a 'stopover' key set to true. Provide the JSON object. Never repeat the same answer",
         },
       ],
     });
