@@ -1,6 +1,7 @@
 .Wrapper {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 @keyframes fadeIn {
@@ -15,10 +16,7 @@
 .Overlay {
   text-align: center;
   position: absolute;
-  bottom: 5%;
-
-  width: 80%;
-  height: 40%;
+  bottom: 20%;
 
   border-radius: 1.2rem;
 
@@ -33,7 +31,7 @@
 
   @media (min-width: 768px) {
     .Logo {
-      width: 30%;
+      width: 50%;
     }
   }
 }

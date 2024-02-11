@@ -7,6 +7,9 @@ import { APIProvider } from "@vis.gl/react-google-maps";
 import { IconX } from "@tabler/icons-react";
 import Link from "next/link";
 
+import styles from "./index.module.scss";
+import { theme } from "@/pages/_app";
+
 const List = () => {
   const [itineraries, setItineraries] = useState<ItineraryData[]>([]);
   useEffect(() => {
@@ -26,7 +29,7 @@ const List = () => {
 
   return (
     <>
-      {itineraries[0] ? (
+      {itineraries ? (
         <>
           <APIProvider apiKey={"AIzaSyAziHvXBEgvKmVPbzZkcaTasDxOjWt1cwQ"}>
             {itineraries.map((itinerary, index) => (
@@ -39,13 +42,21 @@ const List = () => {
                 gap={"lg"}
                 pt={"lg"}
               >
-                <Flex w={"75%"} justify={"space-between"} align={"center"}>
+                <Flex
+                  className={styles.Header}
+                  bg={"#5072ac4a"}
+                  color="white"
+                  w={310}
+                  justify={"space-between"}
+                  align={"center"}
+                >
                   <h3>{itinerary.name.toUpperCase()}</h3>
                   <Button
                     onClick={deleteSavedItineraries}
                     bg={"transparent"}
                     c={"red"}
                     size="xs"
+                    p={0}
                   >
                     <IconX />
                   </Button>

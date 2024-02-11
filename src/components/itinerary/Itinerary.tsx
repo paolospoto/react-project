@@ -9,7 +9,7 @@ import {
   IconMapRoute,
   IconPointFilled,
 } from "@tabler/icons-react";
-import { theme } from "@/pages/_app";
+
 import { alphabet } from "@/utils/mock";
 
 import styles from "./index.module.scss";
@@ -26,7 +26,6 @@ const Itinerary = ({ API, start, stops, finish }: any) => {
       justify={"center"}
       align={"center"}
       gap={"md"}
-      style={{ color: "white" }}
       pb={"sm"}
       w={"100%"}
     >
@@ -69,26 +68,21 @@ const Itinerary = ({ API, start, stops, finish }: any) => {
           direction={"column"}
           justify={"center"}
           align={"center"}
-          bg={theme.primaryColor}
-          style={{ borderRadius: 10, border: "1px solid black" }}
+          className={styles.ItineraryCard}
           w={"80%"}
+          h={300}
+          pt={"md"}
+          pb={"md"}
         >
           <Flex
             className={styles.ItineraryInfo}
             pl={"sm"}
             pr={"sm"}
-            pt={"xl"}
-            w={"100%"}
-            h={80}
+            w={"80%"}
+            h={"80%"}
             align={"center"}
-            justify={"left"}
+            justify={"center"}
             gap={"md"}
-            bg={"white"}
-            style={{
-              color: "black",
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
           >
             {index === 0 ? <IconHome /> : null}
 
@@ -102,25 +96,11 @@ const Itinerary = ({ API, start, stops, finish }: any) => {
             <IconArrowRight className={styles.Arrow} />
             <p className={styles.SecondLetter}>{alphabet[index + 1]}</p>
           </Flex>
-          <Flex
-            pl={"sm"}
-            pr={"sm"}
-            w={"100%"}
-            align={"center"}
-            justify={"space-between"}
-            gap={"md"}
-          >
+          <Flex w={"80%"} align={"center"} justify={"space-between"} gap={"md"}>
             <IconMapRoute />
             <p>{info.distance.text}</p>
           </Flex>
-          <Flex
-            pl={"sm"}
-            pr={"sm"}
-            w={"100%"}
-            align={"center"}
-            justify={"space-between"}
-            gap={"md"}
-          >
+          <Flex w={"80%"} align={"center"} justify={"space-between"} gap={"md"}>
             <IconCar />
             <p>{info.duration.text}</p>
           </Flex>

@@ -4,6 +4,8 @@ import { APIProvider } from "@vis.gl/react-google-maps";
 import { Flex } from "@mantine/core";
 import Image from "next/image";
 
+import styles from "./index.module.scss";
+
 const SocialList = () => {
   return (
     <div>
@@ -25,10 +27,10 @@ const SocialList = () => {
               align={"center"}
               pl={"xs"}
               pr={"md"}
-              bg={"white"}
-              c={"blue"}
+              // bg={"white"}
+              // c={"blue"}
               h={40}
-              style={{ borderRadius: 10, border: "1px solid black" }}
+              className={styles.Header}
             >
               <Flex justify={"center"} align={"center"} gap={"xs"}>
                 <Image
