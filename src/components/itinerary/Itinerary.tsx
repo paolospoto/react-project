@@ -13,9 +13,20 @@ import {
 import { alphabet } from "@/utils/mock";
 
 import styles from "./index.module.scss";
+import { ItineraryData, Stop } from "@/utils/types";
 
-const Itinerary = ({ API, start, stops, finish }: any) => {
-  const [itineraryInfo, setItineraryInfo] = useState<any>([]);
+const Itinerary = ({
+  API,
+  start,
+  stops,
+  finish,
+}: {
+  API: boolean;
+  start: string;
+  stops: Stop[];
+  finish: string;
+}) => {
+  const [itineraryInfo, setItineraryInfo] = useState([]);
   const handleRouteInfo = (route: any) => {
     setItineraryInfo(route);
   };
@@ -31,7 +42,7 @@ const Itinerary = ({ API, start, stops, finish }: any) => {
     >
       <Box w={"80%"} h={300}>
         {API ? (
-          <APIProvider apiKey={"AIzaSyAziHvXBEgvKmVPbzZkcaTasDxOjWt1cwQ"}>
+          <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY}>
             <Map
               mapId={"56522fd9aef04113"}
               mapTypeControl={false}
