@@ -50,7 +50,7 @@ const List = () => {
                   justify={"space-between"}
                   align={"center"}
                 >
-                  <h3>{itinerary.name.toUpperCase()}</h3>
+                  {itinerary.name && <h3>{itinerary.name.toUpperCase()}</h3>}
                   <Button
                     onClick={deleteSavedItineraries}
                     bg={"transparent"}
