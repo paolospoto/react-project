@@ -20,8 +20,8 @@ export interface Stop {
 }
 
 export interface ItineraryData {
-  name: string;
-  time: number;
+  name?: string;
+  time?: number;
 
   start: string;
   stops: Stop[];

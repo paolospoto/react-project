@@ -42,7 +42,7 @@ const Itinerary = ({
     >
       <Box w={"80%"} h={300}>
         {API ? (
-          <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY}>
+          <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY || ""}>
             <Map
               mapId={"56522fd9aef04113"}
               mapTypeControl={false}

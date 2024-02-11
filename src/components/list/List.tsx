@@ -31,7 +31,7 @@ const List = () => {
     <>
       {itineraries ? (
         <>
-          <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY}>
+          <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY || ""}>
             {itineraries.map((itinerary, index) => (
               <Flex
                 w={"100%"}

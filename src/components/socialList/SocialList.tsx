@@ -9,7 +9,7 @@ import styles from "./index.module.scss";
 const SocialList = () => {
   return (
     <div>
-      <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY}>
+      <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY || ""}>
         {mockItineraryData.map((itinerary, index) => (
           <Flex
             w={"100%"}
