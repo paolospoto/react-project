@@ -28,8 +28,6 @@ const SocialList = () => {
               align={"center"}
               pl={"xs"}
               pr={"md"}
-              // bg={"white"}
-              // c={"blue"}
               h={40}
               className={styles.Header}
             >
