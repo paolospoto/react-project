@@ -1,9 +1,11 @@
-import { Button, Flex, TextInput } from "@mantine/core";
-import { IconMinus, IconPlus, IconSend } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 
-import styles from "./index.module.scss";
+import { Button, Flex, TextInput } from "@mantine/core";
+import { IconMinus, IconPlus, IconSend } from "@tabler/icons-react";
+
 import { Stop } from "@/utils/types";
+
+import styles from "./index.module.scss";
 
 const Form = ({
   onItineraryData,

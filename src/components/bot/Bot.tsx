@@ -1,7 +1,8 @@
-import { Button, Flex, TextInput } from "@mantine/core";
-import OpenAI from "openai";
 import { useState } from "react";
 
+import OpenAI from "openai";
+
+import { Button, Flex, TextInput } from "@mantine/core";
 import { IconReload } from "@tabler/icons-react";
 
 const Bot = ({ onData }: any) => {

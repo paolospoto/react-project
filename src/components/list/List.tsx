@@ -1,14 +1,15 @@
-import { readItem, updateItem } from "@/utils/storage";
-import { ItineraryData } from "@/utils/types";
 import { useEffect, useState } from "react";
-import Itinerary from "../itinerary";
+
 import { Button, Flex } from "@mantine/core";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { IconX } from "@tabler/icons-react";
 import Link from "next/link";
+import Itinerary from "../itinerary";
+
+import { ItineraryData } from "@/utils/types";
+import { readItem, updateItem } from "@/utils/storage";
 
 import styles from "./index.module.scss";
-import { theme } from "@/pages/_app";
 
 const List = () => {
   const [itineraries, setItineraries] = useState<ItineraryData[]>([]);

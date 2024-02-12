@@ -1,9 +1,8 @@
+import { useState } from "react";
+
 import { Box, Button, Flex } from "@mantine/core";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
-import Directions from "../directions";
-import { useState } from "react";
 import {
-  IconArrowDown,
   IconArrowRight,
   IconArrowUp,
   IconCar,
@@ -12,11 +11,12 @@ import {
   IconMapRoute,
   IconPointFilled,
 } from "@tabler/icons-react";
+import Directions from "../directions";
 
+import { Stop } from "@/utils/types";
 import { alphabet } from "@/utils/mock";
 
 import styles from "./index.module.scss";
-import { ItineraryData, Stop } from "@/utils/types";
 
 const Itinerary = ({
   API,

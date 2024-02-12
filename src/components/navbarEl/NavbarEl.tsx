@@ -1,7 +1,7 @@
-import { NavbarElProps } from "@/utils/types";
 import { NavLink } from "@mantine/core";
-
 import { usePathname } from "next/navigation";
+
+import { NavbarElProps } from "@/utils/types";
 
 const NavbarEl: React.FC<NavbarElProps> = ({ children, link, icon, title }) => {
   let path = usePathname();

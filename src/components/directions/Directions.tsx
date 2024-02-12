@@ -1,13 +1,6 @@
-import { Flex } from "@mantine/core";
-import {
-  IconArrowRight,
-  IconHomeMove,
-  IconPointFilled,
-} from "@tabler/icons-react";
-import { useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
 
-import styles from "./index.module.scss";
+import { useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 
 const Directions = ({ start, stops, finish, onRouteInfo }: any) => {
   const map = useMap();

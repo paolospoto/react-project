@@ -1,8 +1,9 @@
-import { mockItineraryData } from "@/utils/mock";
-import Itinerary from "../itinerary";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { Flex } from "@mantine/core";
 import Image from "next/image";
+import Itinerary from "../itinerary";
+
+import { mockItineraryData } from "@/utils/mock";
 
 import styles from "./index.module.scss";
 

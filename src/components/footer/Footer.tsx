@@ -1,6 +1,6 @@
-import { Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
+import { Flex } from "@mantine/core";
 
 const Footer = () => {
   return (

@@ -1,7 +1,8 @@
 "use client";
 
-import { AppShell, Burger, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+
+import { AppShell, Burger, Flex } from "@mantine/core";
 import Navbar from "../navbar";
 import Header from "../header";
 import Footer from "../footer";

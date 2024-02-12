@@ -1,7 +1,8 @@
-import { readItem, updateItem } from "@/utils/storage";
+import { useState } from "react";
+
 import { Button, Flex, TextInput } from "@mantine/core";
-import { on } from "events";
-import { useEffect, useState } from "react";
+
+import { readItem, updateItem } from "@/utils/storage";
 
 const DataSaver = ({ start, stops, finish, onSave }: any) => {
   const [nameData, setNameData] = useState<string>("");

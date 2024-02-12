@@ -1,5 +1,4 @@
 import { Flex } from "@mantine/core";
-
 import NavbarEl from "../navbarEl";
 import {
   IconCloud,

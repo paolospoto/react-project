@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Globe3D from "../globe3D";
-import styles from "./index.module.scss";
 import { Button, Flex } from "@mantine/core";
+import Globe3D from "../globe3D";
 import Image from "next/image";
 import Link from "next/link";
+
+import styles from "./index.module.scss";
 
 const Hero = () => {
   return (

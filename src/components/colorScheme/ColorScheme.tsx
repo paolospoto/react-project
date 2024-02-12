@@ -1,8 +1,9 @@
-import { readItem } from "@/utils/storage";
-import { Switch, useMantineColorScheme, useMantineTheme } from "@mantine/core";
-import { IconMoon, IconSun } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
 
+import { Switch, useMantineColorScheme, useMantineTheme } from "@mantine/core";
+import { IconMoon, IconSun } from "@tabler/icons-react";
+
+import { readItem } from "@/utils/storage";
 const ColorScheme = () => {
   const { setColorScheme } = useMantineColorScheme({ keepTransitions: true });
   const [isChecked, setIsChecked] = useState(false);
