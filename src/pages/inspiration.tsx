@@ -10,9 +10,11 @@ import Loader from "@/components/loader";
 const Inspiration = () => {
   const [itineraryData, setItineraryData] = useState({} as any);
 
+  const [requestStarted, setRequestStarted] = useState(false);
   const [renderModal, setRenderModal] = useState(false);
 
   const handleData = (data: any) => {
+    setRequestStarted(true);
     setItineraryData(data);
   };
 
@@ -51,7 +53,7 @@ const Inspiration = () => {
             />
           </>
         ) : (
-          <Loader />
+          <>{requestStarted && <Loader />}</>
         )}
       </Flex>
     </Shell>
