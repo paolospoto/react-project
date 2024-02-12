@@ -1,11 +1,14 @@
-import { Box, Flex } from "@mantine/core";
+import { Box, Button, Flex } from "@mantine/core";
 import { APIProvider, Map } from "@vis.gl/react-google-maps";
 import Directions from "../directions";
 import { useState } from "react";
 import {
+  IconArrowDown,
   IconArrowRight,
+  IconArrowUp,
   IconCar,
   IconHome,
+  IconInfoCircle,
   IconMapRoute,
   IconPointFilled,
 } from "@tabler/icons-react";
@@ -27,8 +30,13 @@ const Itinerary = ({
   finish: string;
 }) => {
   const [itineraryInfo, setItineraryInfo] = useState([]);
+  const [showInfo, setShowInfo] = useState(false);
   const handleRouteInfo = (route: any) => {
     setItineraryInfo(route);
+  };
+
+  const handleInfoRendering = () => {
+    showInfo ? setShowInfo(false) : setShowInfo(true);
   };
 
   return (
@@ -73,50 +81,64 @@ const Itinerary = ({
           </Map>
         )}
       </Box>
-      {itineraryInfo.map((info: any, index: number) => (
-        <Flex
-          key={index}
-          direction={"column"}
-          justify={"center"}
-          align={"center"}
-          className={styles.ItineraryCard}
-          w={"80%"}
-          h={300}
-          pt={"md"}
-          pb={"md"}
-        >
+      <Button onClick={handleInfoRendering}>
+        {showInfo ? <IconArrowUp /> : <IconInfoCircle />}
+      </Button>
+      {showInfo &&
+        itineraryInfo.map((info: any, index: number) => (
           <Flex
-            className={styles.ItineraryInfo}
-            pl={"sm"}
-            pr={"sm"}
-            w={"80%"}
-            h={"80%"}
-            align={"center"}
+            key={index}
+            direction={"column"}
             justify={"center"}
-            gap={"md"}
+            align={"center"}
+            className={styles.ItineraryCard}
+            w={"80%"}
+            h={300}
+            pt={"md"}
+            pb={"md"}
           >
-            {index === 0 ? <IconHome /> : null}
+            <Flex
+              className={styles.ItineraryInfo}
+              pl={"sm"}
+              pr={"sm"}
+              w={"80%"}
+              h={"80%"}
+              align={"center"}
+              justify={"center"}
+              gap={"md"}
+            >
+              {index === 0 ? <IconHome /> : null}
 
-            <p>{info.start_address.split(",")[0]}</p>
+              <p>{info.start_address.split(",")[0]}</p>
 
-            <IconArrowRight />
+              <IconArrowRight />
 
-            <p>{info.end_address.split(",")[0]}</p>
-            {index === itineraryInfo.length - 1 ? <IconPointFilled /> : null}
-            <p className={styles.FirstLetter}>{alphabet[index]}</p>
-            <IconArrowRight className={styles.Arrow} />
-            <p className={styles.SecondLetter}>{alphabet[index + 1]}</p>
+              <p>{info.end_address.split(",")[0]}</p>
+              {index === itineraryInfo.length - 1 ? <IconPointFilled /> : null}
+              <p className={styles.FirstLetter}>{alphabet[index]}</p>
+              <IconArrowRight className={styles.Arrow} />
+              <p className={styles.SecondLetter}>{alphabet[index + 1]}</p>
+            </Flex>
+            <Flex
+              w={"80%"}
+              align={"center"}
+              justify={"space-between"}
+              gap={"md"}
+            >
+              <IconMapRoute />
+              <p>{info.distance.text}</p>
+            </Flex>
+            <Flex
+              w={"80%"}
+              align={"center"}
+              justify={"space-between"}
+              gap={"md"}
+            >
+              <IconCar />
+              <p>{info.duration.text}</p>
+            </Flex>
           </Flex>
-          <Flex w={"80%"} align={"center"} justify={"space-between"} gap={"md"}>
-            <IconMapRoute />
-            <p>{info.distance.text}</p>
-          </Flex>
-          <Flex w={"80%"} align={"center"} justify={"space-between"} gap={"md"}>
-            <IconCar />
-            <p>{info.duration.text}</p>
-          </Flex>
-        </Flex>
-      ))}
+        ))}
     </Flex>
   );
 };
