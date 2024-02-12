@@ -19,6 +19,7 @@ const Inspiration = () => {
   };
 
   const resetAll = () => {
+    setRequestStarted(false);
     setItineraryData({});
     setRenderModal(true);
     setTimeout(() => {
