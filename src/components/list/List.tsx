@@ -45,13 +45,19 @@ const List = () => {
               >
                 <Flex
                   className={styles.Header}
-                  bg={"#5072ac4a"}
+                  // bg={"#5072ac4a"}
+                  pt={0}
+                  pb={0}
                   color="white"
                   w={310}
                   justify={"space-between"}
                   align={"center"}
                 >
-                  {itinerary.name && <h3>{itinerary.name.toUpperCase()}</h3>}
+                  {itinerary.name && (
+                    <h3 style={{ borderBottom: "2px solid" }}>
+                      {itinerary.name.toUpperCase()}
+                    </h3>
+                  )}
                   <Button
                     onClick={deleteSavedItineraries}
                     bg={"transparent"}
