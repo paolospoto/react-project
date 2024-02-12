@@ -65,6 +65,7 @@ const Form = ({
 
   return (
     <Flex direction={"column"} gap={"sm"} align={"center"}>
+      <h2>Where do you want to go?</h2>
       <p>Please select a starting point for your itinerary</p>
       <Flex gap={"xs"} className={styles.Input}>
         <TextInput
@@ -78,7 +79,6 @@ const Form = ({
       </Flex>
       {stopInputs.map((stop: string, index: number) => (
         <>
-          {/* <p>{index + 1}# Stop </p> */}
           <Flex
             gap={"xs"}
             key={index}
