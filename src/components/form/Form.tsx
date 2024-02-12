@@ -64,7 +64,8 @@ const Form = ({
   }, [itineraryData]);
 
   return (
-    <Flex direction={"column"} gap={"sm"}>
+    <Flex direction={"column"} gap={"sm"} align={"center"}>
+      <p>Please select a starting point for your itinerary</p>
       <Flex gap={"xs"} className={styles.Input}>
         <TextInput
           placeholder="Start"
@@ -76,18 +77,27 @@ const Form = ({
         </Button>
       </Flex>
       {stopInputs.map((stop: string, index: number) => (
-        <Flex gap={"xs"} key={index} className={styles.Input}>
-          <TextInput
-            placeholder="Add stops if you want.."
-            value={stop}
-            required
-            onChange={(event) => handleStopInput(event, index)}
-          />
-          <Button onClick={() => removeStopInput(index)}>
-            <IconMinus />
-          </Button>
-        </Flex>
+        <>
+          {/* <p>{index + 1}# Stop </p> */}
+          <Flex
+            gap={"xs"}
+            key={index}
+            className={styles.Input}
+            align={"center"}
+          >
+            <TextInput
+              placeholder={`${index + 1}# Stop`}
+              value={stop}
+              required
+              onChange={(event) => handleStopInput(event, index)}
+            />
+            <Button onClick={() => removeStopInput(index)}>
+              <IconMinus />
+            </Button>
+          </Flex>
+        </>
       ))}
+      <p>Please select a finish point for your itinerary</p>
       <Flex gap={"xs"} className={styles.Input}>
         <TextInput
           placeholder="Finish"
