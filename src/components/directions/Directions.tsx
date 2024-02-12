@@ -47,7 +47,7 @@ const Directions = ({ start, stops, finish, onRouteInfo }: any) => {
         directionRenderer.setDirections(response);
       })
       .catch((error) => {
-        alert("That's a bit too far, try adding more stops! ");
+        alert("Ops, something went wrong. Reload the page please..");
       });
   }, [directionsService, directionRenderer, start, stops, finish]);
 
