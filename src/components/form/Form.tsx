@@ -77,6 +77,7 @@ const Form = ({
           <IconPlus />
         </Button>
       </Flex>
+      <p>Click &quot;+&quot; to add a stop</p>
       {stopInputs.map((stop: string, index: number) => (
         <>
           <Flex
