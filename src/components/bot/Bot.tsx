@@ -18,15 +18,16 @@ const Bot = ({ onData }: any) => {
   };
 
   const generateItinerary = async (e: any) => {
+    onData({});
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-1106",
       messages: [
         {
           role: "system",
           content:
-            "Create a JSON itinerary object starting from " +
+            "Create a JSON object with the key start equal to " +
             startData +
-            ", ensuring the 'start' and 'finish' cities are different. The itinerary should include 'start' and 'finish' keys for the starting and ending cities, respectively, and a 'stop' key with an array of objects for intermediate stops. Each object in the 'stop' array should have a 'location' key for the city, distinct from 'start' and 'finish', and a 'stopover' key set to true. Provide the JSON object. Never repeat the same answer",
+            " and the key finish equal to another city. Add also a key stops with an array of objects with the key location and stopover set to true. Provide the JSON object. Never repeat the same answer",
         },
       ],
     });
@@ -38,17 +39,25 @@ const Bot = ({ onData }: any) => {
     onData(itineraryData);
   };
   return (
-    <Flex justify={"center"} align={"center"} gap={"xs"}>
-      <TextInput
-        placeholder="Start"
-        value={startData}
-        onChange={handleStartInput}
-        disabled={renderMap}
-      />
-      <Button onClick={generateItinerary}>
-        {renderMap ? <IconReload /> : <p>GET INSPIRATION</p>}
-      </Button>
-    </Flex>
+    <>
+      <h2>Generate an itinerary with AI</h2>
+      {renderMap ? (
+        <p>Click to generate another itinerary</p>
+      ) : (
+        <p>Please select a starting point</p>
+      )}
+      <Flex justify={"center"} align={"center"} gap={"xs"}>
+        <TextInput
+          placeholder="Start"
+          value={startData}
+          onChange={handleStartInput}
+          disabled={renderMap}
+        />
+        <Button onClick={generateItinerary}>
+          {renderMap ? <IconReload /> : <p>GET INSPIRATION</p>}
+        </Button>
+      </Flex>
+    </>
   );
 };
 
