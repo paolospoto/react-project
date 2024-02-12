@@ -29,7 +29,7 @@ const List = () => {
 
   return (
     <>
-      {itineraries ? (
+      {itineraries.length !== 0 ? (
         <>
           <APIProvider apiKey={process.env.NEXT_PUBLIC_MAP_KEY || ""}>
             {itineraries.map((itinerary, index) => (
