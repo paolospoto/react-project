@@ -75,11 +75,11 @@ const Form = ({
           value={startData}
           onChange={handleStartInput}
         />
-        <Button onClick={addStopInput}>
-          <IconPlus />
-        </Button>
       </Flex>
       <p>Click &quot;+&quot; to add a stop</p>
+      <Button onClick={addStopInput}>
+        <IconPlus />
+      </Button>
       {stopInputs.map((stop: string, index: number) => (
         <>
           <Flex
