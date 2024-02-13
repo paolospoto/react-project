@@ -15,7 +15,7 @@ const Form = ({
   const [startData, setStartData] = useState<string>("");
   const [stopsData, setStopsData] = useState<Stop[]>([]);
   const [finishData, setFinishData] = useState<string>("");
-  const [stopInputs, setStopInputs] = useState<any[]>([]);
+  const [stopInputs, setStopInputs] = useState<string[]>([]);
 
   const [itineraryData, setItineraryData] = useState({});
 
@@ -43,6 +43,8 @@ const Form = ({
   };
 
   const handleSubmit = () => {
+    console.log(startData, stopsData, finishData);
+
     setItineraryData({
       start: startData,
       stops: stopsData,

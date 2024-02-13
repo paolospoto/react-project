@@ -13,7 +13,7 @@ import {
 } from "@tabler/icons-react";
 import Directions from "../directions";
 
-import { Stop } from "@/utils/types";
+import { ItineraryInfo, Stop } from "@/utils/types";
 import { alphabet } from "@/utils/mock";
 
 import styles from "./index.module.scss";
@@ -29,9 +29,11 @@ const Itinerary = ({
   stops: Stop[];
   finish: string;
 }) => {
-  const [itineraryInfo, setItineraryInfo] = useState([]);
+  const [itineraryInfo, setItineraryInfo] = useState<ItineraryInfo[]>([]);
   const [showInfo, setShowInfo] = useState(false);
-  const handleRouteInfo = (route: any) => {
+  const handleRouteInfo = (route: ItineraryInfo[]) => {
+    console.log(route);
+
     setItineraryInfo(route);
   };
 

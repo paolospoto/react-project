@@ -16,14 +16,21 @@ export interface NavbarElProps {
 
 export interface Stop {
   location: string;
-  stopover?: boolean;
+  stopover: boolean;
 }
 
 export interface ItineraryData {
   name?: string;
   time?: number;
 
-  start: string;
-  stops: Stop[];
-  finish: string;
+  start?: string;
+  stops?: Stop[];
+  finish?: string;
+}
+
+export interface ItineraryInfo {
+  start_address: string;
+  end_address: string;
+  distance: { text: string };
+  duration: { text: string };
 }

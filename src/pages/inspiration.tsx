@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 import { Flex } from "@mantine/core";
 import Loader from "@/components/loader";
 import { createItem, readItem } from "@/utils/storage";
+import { ItineraryData } from "@/utils/types";
 
 const Inspiration = () => {
-  const [itineraryData, setItineraryData] = useState({} as any);
+  const [itineraryData, setItineraryData] = useState<ItineraryData>({});
 
   const [requestStarted, setRequestStarted] = useState(false);
   const [renderModal, setRenderModal] = useState(false);
@@ -18,7 +19,7 @@ const Inspiration = () => {
     if (readItem("itineraries") === null) createItem("itineraries", []);
   }, []);
 
-  const handleData = (data: any) => {
+  const handleData = (data: ItineraryData) => {
     setRequestStarted(true);
     setItineraryData(data);
   };
@@ -47,15 +48,15 @@ const Inspiration = () => {
           <>
             <DataSaver
               start={itineraryData.start}
-              stops={itineraryData.stops}
-              finish={itineraryData.finish}
+              stops={itineraryData.stops ?? []}
+              finish={itineraryData.finish ?? ""}
               onSave={resetAll}
             />
             <Itinerary
               API={true}
               start={itineraryData.start}
-              stops={itineraryData.stops}
-              finish={itineraryData.finish}
+              stops={itineraryData.stops ?? []}
+              finish={itineraryData.finish ?? ""}
             />
           </>
         ) : (

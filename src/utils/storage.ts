@@ -2,7 +2,7 @@ export const createItem = (key: string, value: any): void => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export const readItem = (key: string): any => {
+export const readItem = (key: string) => {
   const value = localStorage.getItem(key);
 
   try {

@@ -3,11 +3,22 @@ import { useState } from "react";
 import { Button, Flex, TextInput } from "@mantine/core";
 
 import { readItem, updateItem } from "@/utils/storage";
+import { Stop } from "@/utils/types";
 
-const DataSaver = ({ start, stops, finish, onSave }: any) => {
+const DataSaver = ({
+  start,
+  stops,
+  finish,
+  onSave,
+}: {
+  start: string;
+  stops: Stop[];
+  finish: string;
+  onSave: () => void;
+}) => {
   const [nameData, setNameData] = useState<string>("");
 
-  const handleNameInput = (event: any) => {
+  const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNameData(event.target.value);
   };
 

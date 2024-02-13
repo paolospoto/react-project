@@ -2,14 +2,26 @@ import { useEffect, useState } from "react";
 
 import { useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 
-const Directions = ({ start, stops, finish, onRouteInfo }: any) => {
+import { ItineraryInfo, Stop } from "@/utils/types";
+
+const Directions = ({
+  start,
+  stops,
+  finish,
+  onRouteInfo,
+}: {
+  start: string;
+  stops: Stop[];
+  finish: string;
+  onRouteInfo: (route: any) => void;
+}) => {
   const map = useMap();
   const routesLibrary = useMapsLibrary("routes");
   const [directionsService, setDirectionsService] =
     useState<google.maps.DirectionsService>();
   const [directionRenderer, setDirectionsRenderer] =
     useState<google.maps.DirectionsRenderer>();
-  const [route, setRoute] = useState<any>();
+  // const [route, setRoute] = useState<any>();
 
   useEffect(() => {
     if (!routesLibrary || !map) return;
@@ -34,12 +46,12 @@ const Directions = ({ start, stops, finish, onRouteInfo }: any) => {
       .then((response) => {
         console.log(response);
 
-        setRoute(response.routes[0]);
+        // setRoute(response.routes[0]);
         onRouteInfo(response.routes[0].legs);
 
         directionRenderer.setDirections(response);
       })
-      .catch((error) => {
+      .catch(() => {
         alert("Ops, something went wrong. Reload the page please..");
       });
   }, [directionsService, directionRenderer, start, stops, finish]);

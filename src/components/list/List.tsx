@@ -24,7 +24,7 @@ const List = () => {
     setItineraries(values);
   }, []);
 
-  const deleteSavedItineraries = (index: any) => {
+  const deleteSavedItineraries = (index: number) => {
     if (!confirm("Are you sure you want to delete this itinerary?")) return;
 
     const values = readItem("itineraries");
@@ -64,7 +64,7 @@ const List = () => {
                     </h3>
                   )}
                   <Button
-                    onClick={deleteSavedItineraries}
+                    onClick={() => deleteSavedItineraries(index)}
                     bg={"transparent"}
                     c={"red"}
                     size="xs"
@@ -76,9 +76,9 @@ const List = () => {
 
                 <Itinerary
                   API={false}
-                  start={itinerary.start}
-                  stops={itinerary.stops}
-                  finish={itinerary.finish}
+                  start={itinerary.start ?? ""}
+                  stops={itinerary.stops ?? []}
+                  finish={itinerary.finish ?? ""}
                 />
               </Flex>
             ))}

@@ -4,8 +4,9 @@ import OpenAI from "openai";
 
 import { Button, Flex, TextInput } from "@mantine/core";
 import { IconReload } from "@tabler/icons-react";
+import { ItineraryData } from "@/utils/types";
 
-const Bot = ({ onData }: any) => {
+const Bot = ({ onData }: { onData: (data: ItineraryData) => void }) => {
   const [startData, setStartData] = useState<string>("");
 
   const [renderMap, setRenderMap] = useState(false);
@@ -14,11 +15,11 @@ const Bot = ({ onData }: any) => {
     dangerouslyAllowBrowser: true,
   });
 
-  const handleStartInput = (event: any) => {
+  const handleStartInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStartData(event.target.value);
   };
 
-  const generateItinerary = async (e: any) => {
+  const generateItinerary = async () => {
     onData({});
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo-1106",

@@ -3,21 +3,23 @@ import Form from "@/components/form";
 import Itinerary from "@/components/itinerary";
 import Shell from "@/components/shell";
 import { createItem, readItem } from "@/utils/storage";
-import { Stop } from "@/utils/types";
+import { ItineraryData, Stop } from "@/utils/types";
 import { Flex } from "@mantine/core";
 import Modal from "@/components/modal";
 import { useEffect, useState } from "react";
 
 const Builder = () => {
   const [startData, setStartData] = useState<string>();
-  const [stopsData, setStopsData] = useState<any>();
-  const [finishData, setFinishData] = useState<any>();
+  const [stopsData, setStopsData] = useState<Stop[]>();
+  const [finishData, setFinishData] = useState<string>();
 
   const [renderMap, setRenderMap] = useState<boolean>(false);
   const [renderForm, setRenderForm] = useState<boolean>(true);
   const [renderModal, setRenderModal] = useState(false);
 
-  const handleItineraryData = (data: any) => {
+  const handleItineraryData = (data: ItineraryData) => {
+    console.log(data);
+
     setStartData(data.start);
     setStopsData(data.stops);
     setFinishData(data.finish);
@@ -61,8 +63,8 @@ const Builder = () => {
         ) : (
           <DataSaver
             start={startData ?? ""}
-            stops={stopsData}
-            finish={finishData}
+            stops={stopsData ?? []}
+            finish={finishData ?? ""}
             onSave={resetAll}
           />
         )}
@@ -72,7 +74,7 @@ const Builder = () => {
             API={true}
             start={startData ?? ""}
             stops={Array.isArray(stopsData) ? stopsData : []}
-            finish={finishData}
+            finish={finishData ?? ""}
           />
         )}
       </Flex>

@@ -7,7 +7,7 @@ import Navbar from "../navbar";
 import Header from "../header";
 import Footer from "../footer";
 
-const Shell = ({ children }: any) => {
+const Shell = ({ children }: { children: React.ReactNode }) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
