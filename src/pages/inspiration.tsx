@@ -3,15 +3,20 @@ import DataSaver from "@/components/dataSaver";
 import Itinerary from "@/components/itinerary";
 import Shell from "@/components/shell";
 import Modal from "@/components/modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Flex } from "@mantine/core";
 import Loader from "@/components/loader";
+import { createItem, readItem } from "@/utils/storage";
 
 const Inspiration = () => {
   const [itineraryData, setItineraryData] = useState({} as any);
 
   const [requestStarted, setRequestStarted] = useState(false);
   const [renderModal, setRenderModal] = useState(false);
+
+  useEffect(() => {
+    if (readItem("itineraries") === null) createItem("itineraries", []);
+  }, []);
 
   const handleData = (data: any) => {
     setRequestStarted(true);
