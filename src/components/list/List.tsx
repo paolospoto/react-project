@@ -7,12 +7,17 @@ import Link from "next/link";
 import Itinerary from "../itinerary";
 
 import { ItineraryData } from "@/utils/types";
-import { readItem, updateItem } from "@/utils/storage";
+import { createItem, readItem, updateItem } from "@/utils/storage";
 
 import styles from "./index.module.scss";
 
 const List = () => {
   const [itineraries, setItineraries] = useState<ItineraryData[]>([]);
+
+  useEffect(() => {
+    if (readItem("itineraries") === null) createItem("itineraries", []);
+  }, []);
+
   useEffect(() => {
     const values = readItem("itineraries");
 
