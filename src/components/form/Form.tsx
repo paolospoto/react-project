@@ -43,8 +43,6 @@ const Form = ({
   };
 
   const handleSubmit = () => {
-    console.log(startData, stopsData, finishData);
-
     setItineraryData({
       start: startData,
       stops: stopsData,

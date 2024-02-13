@@ -32,8 +32,6 @@ const Itinerary = ({
   const [itineraryInfo, setItineraryInfo] = useState<ItineraryInfo[]>([]);
   const [showInfo, setShowInfo] = useState(false);
   const handleRouteInfo = (route: ItineraryInfo[]) => {
-    console.log(route);
-
     setItineraryInfo(route);
   };
 

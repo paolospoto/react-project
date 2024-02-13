@@ -18,8 +18,6 @@ const Builder = () => {
   const [renderModal, setRenderModal] = useState(false);
 
   const handleItineraryData = (data: ItineraryData) => {
-    console.log(data);
-
     setStartData(data.start);
     setStopsData(data.stops);
     setFinishData(data.finish);

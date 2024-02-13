@@ -21,7 +21,6 @@ const Directions = ({
     useState<google.maps.DirectionsService>();
   const [directionRenderer, setDirectionsRenderer] =
     useState<google.maps.DirectionsRenderer>();
-  // const [route, setRoute] = useState<any>();
 
   useEffect(() => {
     if (!routesLibrary || !map) return;
@@ -44,9 +43,6 @@ const Directions = ({
         travelMode: google.maps.TravelMode.DRIVING,
       })
       .then((response) => {
-        console.log(response);
-
-        // setRoute(response.routes[0]);
         onRouteInfo(response.routes[0].legs);
 
         directionRenderer.setDirections(response);

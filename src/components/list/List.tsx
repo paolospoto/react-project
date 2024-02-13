@@ -50,7 +50,6 @@ const List = () => {
               >
                 <Flex
                   className={styles.Header}
-                  // bg={"#5072ac4a"}
                   pt={0}
                   pb={0}
                   color="white"
